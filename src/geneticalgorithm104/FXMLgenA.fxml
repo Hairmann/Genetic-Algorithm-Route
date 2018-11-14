@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainAnchorPane" prefHeight="768.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="geneticalgorithm104.FXMLgenAController">
+   <children>
+      <SplitPane fx:id="splitPane0" dividerPositions="0.1697965571205008" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane fx:id="splitPane1" dividerPositions="0.22774869109947643" orientation="VERTICAL" prefHeight="766.0" prefWidth="209.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextField fx:id="textfieldNumPoints" alignment="CENTER" layoutX="121.0" layoutY="14.0" onAction="#inputNumPoints" prefHeight="25.0" prefWidth="72.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="7.0" />
+                              <Label layoutX="14.0" layoutY="9.0" text="Количество портов:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                              <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="53.0" prefHeight="111.0" prefWidth="212.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Button fx:id="buttonRandomDisposition" mnemonicParsing="false" onAction="#handleRandomDisposition" text="Случайная дислокация" />
+                                    <Button fx:id="buttonCircleDisposition" mnemonicParsing="false" onAction="#handleCircleDisposition" text="Круговая дислокация" />
+                                    <Separator prefWidth="200.0" />
+                                    <Button fx:id="buttonDropTableXYSelection" mnemonicParsing="false" onAction="#handleDropTableXYSelection" text="Сбросить выделение в таблице" textAlignment="CENTER" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="tableXY" layoutX="6.0" layoutY="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="tableXYcolumn0" prefWidth="50.0" text="№" />
+                                  <TableColumn fx:id="tableXYcolumnX" text="[X]" />
+                                    <TableColumn fx:id="tableXYcolumnY" text="[Y]" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane fx:id="splitPane2" dividerPositions="0.2547348484848485" prefHeight="766.0" prefWidth="807.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" layoutY="7.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                                 <children>
+                                    <HBox prefHeight="32.0" prefWidth="266.0" spacing="15.0">
+                                       <children>
+                                          <Label text="Размер исходной популяции:" />
+                                          <TextField fx:id="textfieldNumRoutes" alignment="CENTER" onAction="#inputNumRoutes" prefHeight="25.0" prefWidth="72.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <Separator prefWidth="200.0" />
+                                    <Separator prefWidth="200.0" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                                       <children>
+                                          <Button fx:id="buttonStart" mnemonicParsing="false" onAction="#handleStart" text="Пуск" />
+                                          <Button fx:id="buttonPause" mnemonicParsing="false" onAction="#handlePause" text="Пауза" />
+                                          <Button fx:id="buttonStop" mnemonicParsing="false" onAction="#handleStop" text="Сброс" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <SplitPane fx:id="splitPane3" dividerPositions="0.7081151832460733" orientation="VERTICAL" prefHeight="764.0" prefWidth="705.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <Pane layoutX="46.0" layoutY="88.0" prefHeight="604.0" prefWidth="805.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Canvas fx:id="canvasPoints" height="538.0" onMouseClicked="#canvasPointsMouseClicked" width="805.0" />
+                                                <Label fx:id="labelNumPortsNotSet" layoutX="299.0" layoutY="259.0" text="Не задано количество портов" textAlignment="CENTER" textFill="RED" visible="false">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <TextArea fx:id="textareaStatus" editable="false" layoutX="14.0" layoutY="10.0" prefHeight="220.0" prefWidth="805.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                          <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="165.0" text="СТРОКА СОСТОЯНИЯ:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="528.0" AnchorPane.topAnchor="5.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
